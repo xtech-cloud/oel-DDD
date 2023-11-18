@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -41,7 +42,7 @@ public class MemoryEventBus : IEventBus
 
     public void Subscribe(Type _eventRecordType, IEventHandler _handler)
     {
-        if (!(_eventRecordType is IEventRecord))
+        if (!_eventRecordType.IsAssignableTo<IEventRecord>())
             throw new DDDException("_eventRecordType is not IEventRecord");
 
         var subscribers = getSubscribers(_eventRecordType.FullName);
@@ -60,7 +61,7 @@ public class MemoryEventBus : IEventBus
 
     public void Unsubscribe(Type _eventRecordType, Func<IEventRecord, Task> _action)
     {
-        if (!(_eventRecordType is IEventRecord))
+        if (!_eventRecordType.IsAssignableTo<IEventRecord>())
             throw new DDDException("_eventRecordType is not IEventRecord");
 
         var subscribers = getSubscribers(_eventRecordType.FullName);
@@ -79,7 +80,7 @@ public class MemoryEventBus : IEventBus
 
     public void UnsubscribeAll(Type _eventRecordType)
     {
-        if (!(_eventRecordType is IEventRecord))
+        if (!_eventRecordType.IsAssignableTo<IEventRecord>())
             throw new DDDException("_eventRecordType is not IEventRecord");
 
         var subscribers = getSubscribers(_eventRecordType.FullName);
