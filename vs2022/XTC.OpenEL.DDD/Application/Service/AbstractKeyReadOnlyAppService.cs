@@ -33,7 +33,7 @@ where TEntity : class, IEntity
 }
 
 public abstract class AbstractKeyReadOnlyAppService<TEntity, TGetOutputDTO, TGetListOutputDTO, TKey, TGetListInput>
-: ApplicationService
+: AbstractApplicationService
 , IReadOnlyAppService<TGetOutputDTO, TGetListOutputDTO, TKey, TGetListInput>
 where TEntity : class, IEntity
 {
