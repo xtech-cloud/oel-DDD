@@ -8,7 +8,7 @@ using XTC.OpenEL.DDD.Infrastracture.Log;
 
 namespace XTC.OpenEL.DDD.Application.Service;
 
-public abstract class ApplicationService : IApplicationService
+public abstract class AbstractApplicationService : IApplicationService
 {
     protected IDependencyInjectionProvider dependencyInjectionProvider_ { get; set; }
 
