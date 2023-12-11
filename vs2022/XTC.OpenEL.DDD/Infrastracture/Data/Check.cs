@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using JetBrains.Annotations;
 
-namespace XTC.OpenEL.DDD.Infrastracture.DDD;
+namespace XTC.OpenEL.DDD.Infrastracture.Data;
 
 
 [DebuggerStepThrough]

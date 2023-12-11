@@ -1,6 +1,6 @@
 ﻿using JetBrains.Annotations;
 using XTC.OpenEL.DDD.Application.DTO;
-using XTC.OpenEL.DDD.Infrastracture.DDD;
+using XTC.OpenEL.DDD.Infrastracture.Data;
 
 namespace System.Linq;
 

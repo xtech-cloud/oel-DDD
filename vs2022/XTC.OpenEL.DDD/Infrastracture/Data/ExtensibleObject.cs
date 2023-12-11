@@ -1,7 +1,6 @@
 ﻿using System;
-using XTC.OpenEL.DDD.Infrastracture.DDD.Data;
 
-namespace XTC.OpenEL.DDD.Infrastracture.DDD.ObjectExtending;
+namespace XTC.OpenEL.DDD.Infrastracture.Data;
 
 
 [Serializable]

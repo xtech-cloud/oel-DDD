@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using XTC.OpenEL.DDD.Infrastracture.DDD;
+using XTC.OpenEL.DDD.Infrastracture.Data;
 
 namespace System;
 

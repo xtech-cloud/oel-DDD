@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using XTC.OpenEL.DDD.Infrastracture.DDD.ObjectExtending;
+using XTC.OpenEL.DDD.Infrastracture.Data;
 
 namespace XTC.OpenEL.DDD.Application.DTO;
 

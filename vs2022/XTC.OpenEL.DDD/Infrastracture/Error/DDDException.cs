@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace XTC.OpenEL.DDD.Infrastracture.DDD;
+namespace XTC.OpenEL.DDD.Infrastracture.Error;
 
 /// <summary>
 /// Base exception type for those are thrown by Abp system for Abp specific exceptions.

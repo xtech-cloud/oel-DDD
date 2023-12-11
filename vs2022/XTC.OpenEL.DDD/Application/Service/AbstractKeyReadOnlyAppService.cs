@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using XTC.OpenEL.DDD.Application.DTO;
 using XTC.OpenEL.DDD.Domain.Entity;
 using XTC.OpenEL.DDD.Domain.Repository;
-using XTC.OpenEL.DDD.Infrastracture.DDD;
+using XTC.OpenEL.DDD.Infrastracture.Error;
 
 namespace XTC.OpenEL.DDD.Application.Service;
 

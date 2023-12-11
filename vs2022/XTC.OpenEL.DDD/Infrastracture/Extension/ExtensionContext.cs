@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using XTC.OpenEL.DDD.Infrastracture.DDD.ObjectExtending;
+using XTC.OpenEL.DDD.Infrastracture.Data;
 
 namespace XTC.OpenEL.DDD.Infrastracture.Extension;
 

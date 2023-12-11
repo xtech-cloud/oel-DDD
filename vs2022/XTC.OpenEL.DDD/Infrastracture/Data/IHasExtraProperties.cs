@@ -1,4 +1,4 @@
-﻿namespace XTC.OpenEL.DDD.Infrastracture.DDD.Data;
+﻿namespace XTC.OpenEL.DDD.Infrastracture.Data;
 
 public interface IHasExtraProperties
 {

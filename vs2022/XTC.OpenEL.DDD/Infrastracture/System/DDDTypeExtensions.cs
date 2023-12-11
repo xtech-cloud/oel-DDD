@@ -2,7 +2,7 @@
 using JetBrains.Annotations;
 using System.Collections.Generic;
 using System.Linq;
-using XTC.OpenEL.DDD.Infrastracture.DDD;
+using XTC.OpenEL.DDD.Infrastracture.Data;
 
 namespace System;
 

@@ -1,6 +1,6 @@
 ﻿using JetBrains.Annotations;
 using System.Linq;
-using XTC.OpenEL.DDD.Infrastracture.DDD;
+using XTC.OpenEL.DDD.Infrastracture.Data;
 
 namespace System.Collections.Generic;
 

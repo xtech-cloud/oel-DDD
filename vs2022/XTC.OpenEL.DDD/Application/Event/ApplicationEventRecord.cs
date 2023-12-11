@@ -1,4 +1,4 @@
-﻿using XTC.OpenEL.DDD.Infrastracture.DDD.EventBus;
+﻿using XTC.OpenEL.DDD.Infrastracture.EventBus;
 
 namespace XTC.OpenEL.DDD.Application.Event;
 

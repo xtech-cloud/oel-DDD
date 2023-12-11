@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace XTC.OpenEL.DDD.Infrastracture.DDD.EventBus;
+namespace XTC.OpenEL.DDD.Infrastracture.EventBus;
 
 /// <summary>
 /// Indirect base interface for all event handlers.

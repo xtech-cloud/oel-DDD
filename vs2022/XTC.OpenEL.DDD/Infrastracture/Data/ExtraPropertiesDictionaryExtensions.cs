@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace XTC.OpenEL.DDD.Infrastracture.DDD.Data;
+namespace XTC.OpenEL.DDD.Infrastracture.Data;
 
 public static class ExtraPropertiesDictionaryExtensions
 {

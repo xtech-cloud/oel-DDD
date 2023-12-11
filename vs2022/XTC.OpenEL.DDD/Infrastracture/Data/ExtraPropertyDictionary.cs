@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
 
-namespace XTC.OpenEL.DDD.Infrastracture.DDD.Data;
+namespace XTC.OpenEL.DDD.Infrastracture.Data;
 
 [Serializable]
 public class ExtraPropertyDictionary : Dictionary<string, object?>

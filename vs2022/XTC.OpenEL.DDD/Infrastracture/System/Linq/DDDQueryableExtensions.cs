@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 using JetBrains.Annotations;
-using XTC.OpenEL.DDD.Infrastracture.DDD;
+using XTC.OpenEL.DDD.Infrastracture.Data;
 
 namespace System.Linq;
 

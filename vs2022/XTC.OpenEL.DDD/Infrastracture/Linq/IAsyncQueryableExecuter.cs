@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace XTC.OpenEL.DDD.Infrastracture.DDD.Linq;
+namespace XTC.OpenEL.DDD.Infrastracture.Linq;
 
 public interface IAsyncQueryableExecuter
 {

@@ -1,6 +1,4 @@
 ﻿using System;
-using XTC.OpenEL.DDD.Infrastracture.DDD.Data;
-using XTC.OpenEL.DDD.Infrastracture.DDD.ObjectExtending;
 
 namespace XTC.OpenEL.DDD.Domain.Entity;
 

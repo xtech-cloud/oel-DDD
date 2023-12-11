@@ -1,4 +1,4 @@
-﻿namespace XTC.OpenEL.DDD.Infrastracture.DDD.EventBus;
+﻿namespace XTC.OpenEL.DDD.Infrastracture.EventBus;
 
 public interface IEventRecord
 {

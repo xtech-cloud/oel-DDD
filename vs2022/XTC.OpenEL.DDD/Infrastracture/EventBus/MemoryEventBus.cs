@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Reflection;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using XTC.OpenEL.DDD.Infrastracture.Error;
 
-namespace XTC.OpenEL.DDD.Infrastracture.DDD.EventBus;
+namespace XTC.OpenEL.DDD.Infrastracture.EventBus;
 
 /// <summary>
 /// 内存事件总线

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace XTC.OpenEL.DDD.Infrastracture.DDD.Uid;
+namespace XTC.OpenEL.DDD.Infrastracture.Uid;
 
 
 /// <summary>
