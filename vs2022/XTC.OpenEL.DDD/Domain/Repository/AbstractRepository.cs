@@ -9,7 +9,7 @@ public abstract class AbstractRepository: IRepository
     protected IDependencyInjectionProvider dependencyInjectionProvider_ { get; set; }
     protected ILog log_ => dependencyInjectionProvider_.Container.Resolve<ILog>();
 
-    AbstractRepository(IDependencyInjectionProvider _dependencyInjectionprovider)
+    public AbstractRepository(IDependencyInjectionProvider _dependencyInjectionprovider)
     {
         dependencyInjectionProvider_ = _dependencyInjectionprovider;
     }

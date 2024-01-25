@@ -17,7 +17,7 @@ public abstract class AbstractApplicationService : IApplicationService
     protected IMapper objectMapper_ => dependencyInjectionProvider_.Container.Resolve<IMapper>();
     protected IEventBus eventBus_ => dependencyInjectionProvider_.Container.Resolve<IEventBus>();
 
-    AbstractApplicationService(IDependencyInjectionProvider _dependencyInjectionprovider)
+    public AbstractApplicationService(IDependencyInjectionProvider _dependencyInjectionprovider)
     {
         dependencyInjectionProvider_ = _dependencyInjectionprovider;
     }
