@@ -5,10 +5,14 @@ using XTC.OpenEL.DDD.Infrastracture.Uid;
 
 namespace XTC.OpenEL.DDD.Domain.Service;
 
-public class DomainService : IDomainService
+public abstract class AbstractDomainService : IDomainService
 {
     protected IDependencyInjectionProvider dependencyInjectionProvider_ { get; set; }
-
     protected IGuidGenerator guidGenerator_ => dependencyInjectionProvider_.Container.Resolve<IGuidGenerator>();
     protected ILog log_ => dependencyInjectionProvider_.Container.Resolve<ILog>();
+
+    AbstractDomainService(IDependencyInjectionProvider _dependencyInjectionProvider)
+    {
+        dependencyInjectionProvider_ = _dependencyInjectionProvider;
+    }
 }
