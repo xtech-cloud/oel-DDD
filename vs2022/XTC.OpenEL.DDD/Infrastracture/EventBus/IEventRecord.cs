@@ -2,7 +2,5 @@
 
 public interface IEventRecord
 {
-    string FullName { get; }
-
     IEventData Data { get; }
 }

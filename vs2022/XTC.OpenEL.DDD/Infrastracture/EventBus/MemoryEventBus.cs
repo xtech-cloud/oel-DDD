@@ -2,7 +2,6 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using XTC.OpenEL.DDD.Infrastracture.Error;
 
 namespace XTC.OpenEL.DDD.Infrastracture.EventBus;
 
@@ -15,7 +14,7 @@ public class MemoryEventBus : IEventBus
 
     public async Task PublishAsync(IEventRecord _record)
     {
-        var subscribers = getSubscribers(_record.FullName);
+        var subscribers = getSubscribers(_record.GetType().FullName);
         foreach (var handler in subscribers)
         {
             if (null == handler)
@@ -27,63 +26,45 @@ public class MemoryEventBus : IEventBus
 
     public void Subscribe<T>(Func<IEventRecord, Task> _action) where T : IEventRecord
     {
-        Subscribe(typeof(T), new ActionEventHandler(_action));
+        subscribe(typeof(T).FullName, new ActionEventHandler(_action));
     }
 
     public void Subscribe<T>(IEventHandler _handler) where T : IEventRecord
     {
-        Subscribe(typeof(T), _handler);
+        subscribe(typeof(T).FullName, _handler);
     }
 
-    public void Subscribe(Type _eventRecordType, Func<IEventRecord, Task> _action)
-    {
-        Subscribe(_eventRecordType, new ActionEventHandler(_action));
-    }
-
-    public void Subscribe(Type _eventRecordType, IEventHandler _handler)
-    {
-        if (!_eventRecordType.IsAssignableTo<IEventRecord>())
-            throw new DDDException("_eventRecordType is not IEventRecord");
-
-        var subscribers = getSubscribers(_eventRecordType.FullName);
-        subscribers.AddLast(_handler);
-    }
 
     public void Unsubscribe<T>(Func<IEventRecord, Task> _action) where T : IEventRecord
     {
-        Unsubscribe(typeof(T), _action);
+        unsubscribe(typeof(T).FullName, _action);
     }
 
     public void Unsubscribe<T>(IEventHandler _handler) where T : IEventRecord
     {
-        Unsubscribe(typeof(T), _handler);
-    }
-
-    public void Unsubscribe(Type _eventRecordType, Func<IEventRecord, Task> _action)
-    {
-        if (!_eventRecordType.IsAssignableTo<IEventRecord>())
-            throw new DDDException("_eventRecordType is not IEventRecord");
-
-        var subscribers = getSubscribers(_eventRecordType.FullName);
-        subscribers.RemoveAll((_item) => _item.Action == _action);
-    }
-
-    public void Unsubscribe(Type _eventRecordType, IEventHandler _handler)
-    {
-        Unsubscribe(_eventRecordType, _handler.Action);
+        unsubscribe(typeof(T).FullName, _handler.Action);
     }
 
     public void UnsubscribeAll<T>() where T : IEventRecord
     {
-        UnsubscribeAll(typeof(T));
+        unsubscribeAll(typeof(T).FullName);
     }
 
-    public void UnsubscribeAll(Type _eventRecordType)
+    private void subscribe(string _subject, IEventHandler _handler)
     {
-        if (!_eventRecordType.IsAssignableTo<IEventRecord>())
-            throw new DDDException("_eventRecordType is not IEventRecord");
+        var subscribers = getSubscribers(_subject);
+        subscribers.AddLast(_handler);
+    }
 
-        var subscribers = getSubscribers(_eventRecordType.FullName);
+    private void unsubscribe(string _subject, Func<IEventRecord, Task> _action)
+    {
+        var subscribers = getSubscribers(_subject);
+        subscribers.RemoveAll((_item) => _item.Action == _action);
+    }
+
+    private void unsubscribeAll(string _subject)
+    {
+        var subscribers = getSubscribers(_subject);
         subscribers.Clear();
     }
 

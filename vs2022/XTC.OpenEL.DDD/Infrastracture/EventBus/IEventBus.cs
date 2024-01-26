@@ -23,19 +23,9 @@ public interface IEventBus
 
     void Subscribe<T>(IEventHandler _handler) where T : IEventRecord;
 
-    void Subscribe(Type _eventRecordType, Func<IEventRecord, Task> _action);
-
-    void Subscribe(Type _eventRecordType, IEventHandler _handler);
-
     void Unsubscribe<T>(Func<IEventRecord, Task> _action) where T : IEventRecord;
 
     void Unsubscribe<T>(IEventHandler _handler) where T : IEventRecord;
 
-    void Unsubscribe(Type _eventRecordType, Func<IEventRecord, Task> _action);
-
-    void Unsubscribe(Type _eventRecordType, IEventHandler _handler);
-
     void UnsubscribeAll<T>() where T : IEventRecord;
-
-    void UnsubscribeAll(Type _eventRecordType);
 }
