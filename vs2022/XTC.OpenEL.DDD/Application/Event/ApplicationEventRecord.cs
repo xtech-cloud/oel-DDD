@@ -2,14 +2,14 @@
 
 namespace XTC.OpenEL.DDD.Application.Event;
 
-public class ApplicationEventRecord : IEventRecord
+public abstract class ApplicationEventRecord : IEventRecord
 {
     public ApplicationEventRecord(IEventData _data)
     {
         Data = _data;
     }
 
-    public string FullName
+    public string ID
     {
         get
         {

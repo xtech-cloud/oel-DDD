@@ -2,13 +2,14 @@
 
 namespace XTC.OpenEL.DDD.Domain.Event;
 
-public class DomainEventRecord : IEventRecord
+public abstract class DomainEventRecord : IEventRecord
 {
     public DomainEventRecord(IEventData _data)
     {
         Data = _data;
     }
-    public string FullName
+
+    public string ID
     {
         get
         {

@@ -10,7 +10,7 @@ namespace XTC.OpenEL.DDD.Infrastracture.EventBus;
 /// </summary>
 public class MemoryEventBus : IEventBus
 {
-    private ConcurrentDictionary<string, LinkedList<IEventHandler>> pool_ = new ConcurrentDictionary<string, LinkedList<IEventHandler>>();
+    protected ConcurrentDictionary<string, LinkedList<IEventHandler>> pool_ = new ConcurrentDictionary<string, LinkedList<IEventHandler>>();
 
     public async Task PublishAsync(IEventRecord _record)
     {
@@ -34,7 +34,6 @@ public class MemoryEventBus : IEventBus
         subscribe(typeof(T).FullName, _handler);
     }
 
-
     public void Unsubscribe<T>(Func<IEventRecord, Task> _action) where T : IEventRecord
     {
         unsubscribe(typeof(T).FullName, _action);
@@ -50,25 +49,25 @@ public class MemoryEventBus : IEventBus
         unsubscribeAll(typeof(T).FullName);
     }
 
-    private void subscribe(string _subject, IEventHandler _handler)
+    protected void subscribe(string _subject, IEventHandler _handler)
     {
         var subscribers = getSubscribers(_subject);
         subscribers.AddLast(_handler);
     }
 
-    private void unsubscribe(string _subject, Func<IEventRecord, Task> _action)
+    protected void unsubscribe(string _subject, Func<IEventRecord, Task> _action)
     {
         var subscribers = getSubscribers(_subject);
         subscribers.RemoveAll((_item) => _item.Action == _action);
     }
 
-    private void unsubscribeAll(string _subject)
+    protected void unsubscribeAll(string _subject)
     {
         var subscribers = getSubscribers(_subject);
         subscribers.Clear();
     }
 
-    private LinkedList<IEventHandler> getSubscribers(string _subject)
+    protected LinkedList<IEventHandler> getSubscribers(string _subject)
     {
         LinkedList<IEventHandler> handlers;
         if (!pool_.TryGetValue(_subject, out handlers))
