@@ -26,12 +26,12 @@ public class MemoryEventBus : IEventBus
 
     public void Subscribe<T>(Func<IEventRecord, Task> _action) where T : IEventRecord
     {
-        subscribe(typeof(T).FullName, new ActionEventHandler(_action));
+        subscribe(typeof(T).FullName, _action);
     }
 
     public void Subscribe<T>(IEventHandler _handler) where T : IEventRecord
     {
-        subscribe(typeof(T).FullName, _handler);
+        subscribe(typeof(T).FullName, _handler.Action);
     }
 
     public void Unsubscribe<T>(Func<IEventRecord, Task> _action) where T : IEventRecord
@@ -49,10 +49,10 @@ public class MemoryEventBus : IEventBus
         unsubscribeAll(typeof(T).FullName);
     }
 
-    protected void subscribe(string _subject, IEventHandler _handler)
+    protected void subscribe(string _subject, Func<IEventRecord, Task> _action)
     {
         var subscribers = getSubscribers(_subject);
-        subscribers.AddLast(_handler);
+        subscribers.AddLast(new ActionEventHandler(_action));
     }
 
     protected void unsubscribe(string _subject, Func<IEventRecord, Task> _action)
