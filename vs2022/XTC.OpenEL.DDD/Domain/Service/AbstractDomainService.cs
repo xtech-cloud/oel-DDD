@@ -8,6 +8,6 @@ namespace XTC.OpenEL.DDD.Domain.Service;
 public abstract class AbstractDomainService : IDomainService
 {
     protected IDependencyInjectionProvider? dependencyInjectionProvider_ { get; set; }
-    protected IGuidGenerator? guidGenerator_ => dependencyInjectionProvider_.Container.Resolve<IGuidGenerator>();
-    protected ILog? log_ => dependencyInjectionProvider_.Container.Resolve<ILog>();
+    protected IGuidGenerator? guidGenerator_ => dependencyInjectionProvider_?.Container.Resolve<IGuidGenerator>();
+    protected ILog? log_ => dependencyInjectionProvider_?.Container.Resolve<ILog>();
 }

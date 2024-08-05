@@ -11,10 +11,10 @@
   <ItemGroup>
     <PackageReference Include="Autofac" Version="7.1.0" />
     <PackageReference Include="AutoMapper" Version="12.0.1" />
-    <PackageReference Include="JetBrains.Annotations" Version="2023.2.0" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.3.5" />
-    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Infrastracture\Linq\" />
   </ItemGroup>
 
 </Project>

@@ -25,7 +25,7 @@ public class ExtraPropertyDictionary : Dictionary<string, object?>
         if (null == value)
             return _default;
 
-        if (!typeof(T).IsAssignableTo(value.GetType()) && !typeof(T).IsAssignableFrom(value.GetType()))
+        if (!typeof(T).IsAssignableFrom(value.GetType()))
             return _default;
         return (T)value;
     }

@@ -10,7 +10,7 @@ namespace XTC.OpenEL.DDD.Infrastracture.EventBus;
 /// </summary>
 public class MemoryEventBus : IEventBus
 {
-    protected ConcurrentDictionary<string, LinkedList<IEventHandler>> pool_ = new ConcurrentDictionary<string, LinkedList<IEventHandler>>();
+    protected ConcurrentDictionary<string, List<IEventHandler>> pool_ = new ConcurrentDictionary<string, List<IEventHandler>>();
 
     public async Task PublishAsync(IEventRecord _record)
     {
@@ -52,7 +52,7 @@ public class MemoryEventBus : IEventBus
     protected void subscribe(string _subject, Func<IEventRecord, Task> _action)
     {
         var subscribers = getSubscribers(_subject);
-        subscribers.AddLast(new ActionEventHandler(_action));
+        subscribers.Add(new ActionEventHandler(_action));
     }
 
     protected void unsubscribe(string _subject, Func<IEventRecord, Task> _action)
@@ -67,12 +67,12 @@ public class MemoryEventBus : IEventBus
         subscribers.Clear();
     }
 
-    protected LinkedList<IEventHandler> getSubscribers(string _subject)
+    protected List<IEventHandler> getSubscribers(string _subject)
     {
-        LinkedList<IEventHandler> handlers;
+        List<IEventHandler> handlers;
         if (!pool_.TryGetValue(_subject, out handlers))
         {
-            handlers = new LinkedList<IEventHandler>();
+            handlers = new List<IEventHandler>();
             pool_[_subject] = handlers;
         }
         return handlers;

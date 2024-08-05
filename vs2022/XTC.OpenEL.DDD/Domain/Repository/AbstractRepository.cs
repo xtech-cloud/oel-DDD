@@ -7,5 +7,5 @@ namespace XTC.OpenEL.DDD.Domain.Repository;
 public abstract class AbstractRepository: IRepository
 {
     protected IDependencyInjectionProvider? dependencyInjectionProvider_ { get; set; }
-    protected ILog? log_ => dependencyInjectionProvider_.Container.Resolve<ILog>();
+    protected ILog? log_ => dependencyInjectionProvider_?.Container.Resolve<ILog>();
 }
